@@ -1,6 +1,6 @@
 const BASE_URL = "https://bakcend-fecaf-render.onrender.com/contatos"
 
-export async function getContatos() {
+export async function getContatoss() {
   const response = await fetch(BASE_URL)
   if (!response.ok) {
     throw new Error("Erro ao buscar contatos")
