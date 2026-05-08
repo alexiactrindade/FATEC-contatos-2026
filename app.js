@@ -130,3 +130,21 @@ async function salvarContato() {
 
   carregarContatos()
 }
+
+botaoSalvar.addEventListener("click", salvarContato)
+
+botaoCancelar.addEventListener("click", () => {
+
+  id.value = ""
+  nome.value = ""
+  celular.value = ""
+  email.value = ""
+  foto.value = ""
+  endereco.value = ""
+  cidade.value = ""
+})
+
+
+botaoAtualizar.addEventListener("click", carregarContatos)
+
+carregarContatos()
