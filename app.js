@@ -1,102 +1,86 @@
-
-import { getContatoss, criarContato, atualizarContato, deletarContato} from "./contatos.js"
-
-const id = document.getElementById("campo-id")
-const nome = document.getElementById("campo-nome")
-const celular = document.getElementById("campo-celular")
-const email = document.getElementById("campo-email")
-const foto = document.getElementById("campo-foto")
-const endereco = document.getElementById("campo-endereco")
-const cidade = document.getElementById("campo-cidade")
-const corpoTabela = document.getElementById("corpo-tabela")
-const mensagemFeedback = document.getElementById("mensagem-feedback")
-const mensagemLista = document.getElementById("mensagem-lista")
-const botaoSalvar = document.getElementById("botao-salvar")
-const botaoCancelar = document.getElementById("botao-cancelar")
-const botaoCarregar = document.getElementById("botao-atualizar")
-
 async function carregarContatos() {
 
   mensagemLista.textContent = "Carregando contatos..."
-  corpoTabela.textContent = ""
+
+  corpoTabela.replaceChildren()
 
   const contatos = await getContatoss()
 
   contatos.forEach(contato => {
 
     const linha = document.createElement("tr")
-    const tdFoto = document.createElement("td")
+    const colunaFoto = document.createElement("td")
     const imagem = document.createElement("img")
+
     imagem.src = contato.foto
     imagem.alt = contato.nome
-    tdFoto.appendChild(imagem)
 
-    const tdNome = document.createElement("td")
-    tdNome.textContent = contato.nome
+    colunaFoto.appendChild(imagem)
 
-    const tdCelular = document.createElement("td")
-    tdCelular.textContent = contato.celular
+    const colunaNome = document.createElement("td")
+    colunaNome.textContent = contato.nome
 
-    const tdEmail = document.createElement("td")
-    tdEmail.textContent = contato.email
+    const colunaCelular = document.createElement("td")
+    colunaCelular.textContent = contato.celular
 
-    const tdEndereco = document.createElement("td")
-    tdEndereco.textContent = contato.endereco
+    const colunaEmail = document.createElement("td")
+    colunaEmail.textContent = contato.email
 
-    const tdCidade = document.createElement("td")
-    tdCidade.textContent = contato.cidade
+    const colunaEndereco = document.createElement("td")
+    colunaEndereco.textContent = contato.endereco
 
-    const tdAcoes = document.createElement("td")
+    const colunaCidade = document.createElement("td")
+    colunaCidade.textContent = contato.cidade
+
+    const colunaAcoes = document.createElement("td")
     const botaoEditar = document.createElement("button")
 
     botaoEditar.textContent = "Editar"
-    botaoEditar.addEventListener("click", () => { preencherFormulario(contato)})
+   
+    botaoEditar.addEventListener("click", () => {
+      preencherFormulario(contato)
+    })
+
+
 
     const botaoExcluir = document.createElement("button")
+
     botaoExcluir.textContent = "Excluir"
-  
+
     botaoExcluir.addEventListener("click", async () => {
-      const confirmar = confirm("Deseja deletar este contato?")
+
+      const confirmar = confirm("Deseja excluir este contato?")
 
       if (confirmar) {
+
         await deletarContato(contato.id)
+
         carregarContatos()
       }
     })
 
-    tdAcoes.appendChild(botaoEditar)
-    tdAcoes.appendChild(botaoExcluir)
-    linha.appendChild(tdFoto)
-    linha.appendChild(tdNome)
-    linha.appendChild(tdCelular)
-    linha.appendChild(tdEmail)
-    linha.appendChild(tdEndereco)
-    linha.appendChild(tdCidade)
-    linha.appendChild(tdAcoes)
-    corpoTabela.appendChild(linha)
-  })
+    colunaAcoes.appendChild(botaoEditar)
+    colunaAcoes.appendChild(botaoExcluir)
 
-  mensagemLista.textContent = ""
-}
 
-function preencherFormulario(contato) {
-  id.value = contato.id
-  nome.value = contato.nome
-  celular.value = contato.celular
-  email.value = contato.email
-  foto.value = contato.foto
-  endereco.value = contato.endereco
-  cidade.value = contato.cidade
+    function preencherFormulario(contato) {
+
+             id.value = contato.id
+            nome.value = contato.nome
+            celular.value = contato.celular
+            email.value = contato.email
+            foto.value = contato.foto
+            endereco.value = contato.endereco
+            cidade.value = contato.cidade
+    }
+async function salvarContato() {
+const contato = {
+
+    nome: nome.value,
+    celular: celular.value,
+    email: email.value,
+    foto: foto.value,
+    endereco: endereco.value,
+    cidade: cidade.value
+  }
 } 
-
-function limparFormulario() { 
-    id.value = ""
-    nome.value = ""
-    celular.value = ""
-    email.value = ""
-    foto.value = ""
-    endereco.value = ""
-    cidade.value = ""
-    
-    mensagemFeedback.textContent = "" 
-        }
