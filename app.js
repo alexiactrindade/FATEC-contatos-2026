@@ -78,3 +78,14 @@ async function carregarContatos() {
 
   mensagemLista.textContent = ""
 }
+
+function preencherFormulario(contato) {
+
+  id.value = contato.id
+  nome.value = contato.nome
+  celular.value = contato.celular
+  email.value = contato.email
+  foto.value = contato.foto
+  endereco.value = contato.endereco
+  cidade.value = contato.cidade
+} 
