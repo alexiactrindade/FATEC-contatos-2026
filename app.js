@@ -80,7 +80,6 @@ async function carregarContatos() {
 }
 
 function preencherFormulario(contato) {
-
   id.value = contato.id
   nome.value = contato.nome
   celular.value = contato.celular
@@ -89,3 +88,15 @@ function preencherFormulario(contato) {
   endereco.value = contato.endereco
   cidade.value = contato.cidade
 } 
+
+function limparFormulario() { 
+    id.value = ""
+    nome.value = ""
+    celular.value = ""
+    email.value = ""
+    foto.value = ""
+    endereco.value = ""
+    cidade.value = ""
+    
+    mensagemFeedback.textContent = "" 
+        }
