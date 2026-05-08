@@ -103,3 +103,30 @@ function preencherFormulario(contato) {
   cidade.value = contato.cidade
 }
 
+async function salvarContato() {
+
+  const contato = {
+    nome: nome.value,
+    celular: celular.value,
+    email: email.value,
+    foto: foto.value,
+    endereco: endereco.value,
+    cidade: cidade.value
+  }
+
+  if (id.value) {
+    await atualizarContato(id.value, contato)
+  } else {
+    await criarContato(contato)
+  }
+
+  id.value = ""
+  nome.value = ""
+  celular.value = ""
+  email.value = ""
+  foto.value = ""
+  endereco.value = ""
+  cidade.value = ""
+
+  carregarContatos()
+}
