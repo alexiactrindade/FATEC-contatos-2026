@@ -28,49 +28,36 @@
 
       <input type="hidden" id="campo-id">
 
-      <label for="campo-nome">
-        Nome completo *
-      </label>
+      <label for="campo-nome"> Nome completo</label>
 
       <input type="text" id="campo-nome" required>
 
-      <label for="campo-celular">
-        Celular *
-      </label>
+      <label for="campo-celular"> Celular </label>
 
       <input type="tel" id="campo-celular" required>
 
-      <label for="campo-email">
-        E-mail
-      </label>
+      <label for="campo-email"> E-mail </label>
 
       <input type="email" id="campo-email">
 
-      <label for="campo-foto">
-        Foto para avaliação (URL)
-      </label>
+      <label for="campo-foto">  Foto para avaliação </label>
+                   
 
-      <input type="url" id="campo-foto">
+<input type="file" id="campo-foto" accept="image/*">
 
-      <label for="campo-endereco">
-        Endereço
-      </label>
+<img id="preview-imagem" src="" alt="Preview da imagem">
+
+      <label for="campo-endereco"> Endereço </label>
 
       <input type="text" id="campo-endereco">
 
-      <label for="campo-cidade">
-        Cidade
-      </label>
+      <label for="campo-cidade"> Cidade  </label>
 
       <input type="text" id="campo-cidade">
 
-        <button type="button" id="botao-salvar" class="botao-salvar">
-        Salvar
-      </button>
+        <button type="button" id="botao-salvar" class="botao-salvar"> Salvar </button>
 
-      <button type="button" id="botao-cancelar" class="botao-cancelar">
-        Cancelar
-      </button>
+      <button type="button" id="botao-cancelar" class="botao-cancelar"> Cancelar </button>
 
       <p id="mensagem-feedback"></p>
 

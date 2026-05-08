@@ -1,9 +1,5 @@
 import {
-  getContatoss,
-  criarContato,
-  atualizarContato,
-  deletarContato
-} from "./contatos.js"
+  getContatoss, criarContato, atualizarContato, deletarContato} from "./contatos.js"
 
 const id = document.getElementById("campo-id")
 const nome = document.getElementById("campo-nome")
