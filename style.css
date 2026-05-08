@@ -238,3 +238,26 @@ footer p{
   text-transform: uppercase;
   color: #b0aca4;
 }
+
+.editar,
+.excluir{
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #0a0a0a;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.editar{
+  margin-right: 0.5rem;
+}
+
+.editar:hover,
+.excluir:hover{
+  background: #0a0a0a;
+  color: #f5f4f0;
+}

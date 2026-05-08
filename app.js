@@ -1,4 +1,9 @@
-import { getContatoss, criarContato, atualizarContato, deletarContato} from "./contatos.js"
+import {
+  getContatoss,
+  criarContato,
+  atualizarContato,
+  deletarContato
+} from "./contatos.js"
 
 const id = document.getElementById("campo-id")
 const nome = document.getElementById("campo-nome")
@@ -14,8 +19,6 @@ const mensagemLista = document.getElementById("mensagem-lista")
 const botaoSalvar = document.getElementById("botao-salvar")
 const botaoCancelar = document.getElementById("botao-cancelar")
 const botaoAtualizar = document.getElementById("botao-atualizar")
-
-
 
 async function carregarContatos() {
 
@@ -56,6 +59,7 @@ async function carregarContatos() {
 
     const botaoEditar = document.createElement("button")
     botaoEditar.textContent = "Editar"
+    botaoEditar.classList.add("editar")
 
     botaoEditar.addEventListener("click", () => {
       preencherFormulario(contato)
@@ -63,6 +67,7 @@ async function carregarContatos() {
 
     const botaoExcluir = document.createElement("button")
     botaoExcluir.textContent = "Excluir"
+    botaoExcluir.classList.add("excluir")
 
     botaoExcluir.addEventListener("click", async () => {
 
@@ -90,7 +95,6 @@ async function carregarContatos() {
 
   mensagemLista.textContent = ""
 }
-
 
 function preencherFormulario(contato) {
 
@@ -144,7 +148,6 @@ botaoCancelar.addEventListener("click", () => {
   cidade.value = ""
 })
 
-
 botaoAtualizar.addEventListener("click", carregarContatos)
 
-carregarContatos()
+carregarContatos() 
