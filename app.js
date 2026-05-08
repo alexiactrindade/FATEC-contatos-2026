@@ -1,1 +1,2 @@
-import { getContatos } from "./contatos.js"
+
+import { getContatoss, criarContato, atualizarContato, deletarContato} from "./contatos.js"
