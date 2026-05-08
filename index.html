@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FATEC Models</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FATEC Models</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <header>
@@ -21,26 +28,49 @@
 
       <input type="hidden" id="campo-id">
 
-      <label for="campo-nome">Nome completo *</label>
+      <label for="campo-nome">
+        Nome completo *
+      </label>
+
       <input type="text" id="campo-nome" required>
 
-      <label for="campo-celular">Celular *</label>
+      <label for="campo-celular">
+        Celular *
+      </label>
+
       <input type="tel" id="campo-celular" required>
 
-      <label for="campo-email">E-mail</label>
+      <label for="campo-email">
+        E-mail
+      </label>
+
       <input type="email" id="campo-email">
 
-      <label for="campo-foto">Foto (URL)</label>
+      <label for="campo-foto">
+        Foto (URL)
+      </label>
+
       <input type="url" id="campo-foto">
 
-      <label for="campo-endereco">Endereço</label>
+      <label for="campo-endereco">
+        Endereço
+      </label>
+
       <input type="text" id="campo-endereco">
 
-      <label for="campo-cidade">Cidade</label>
+      <label for="campo-cidade">
+        Cidade
+      </label>
+
       <input type="text" id="campo-cidade">
 
-      <button type="button" id="btn-salvar">Salvar</button>
-      <button type="button" id="btn-cancelar">Cancelar</button>
+      <button type="button" class="botao-salvar">
+        Salvar
+      </button>
+
+      <button type="button" class="botao-cancelar">
+        Cancelar
+      </button>
 
       <p id="mensagem-feedback"></p>
 
@@ -48,13 +78,20 @@
 
     <section id="painel-lista">
 
-      <header>
+      <div class="topo-lista">
+
         <h2>Candidatas</h2>
-        <button type="button" id="btn-carregar">Atualizar</button>
-      </header>
+
+        <button type="button" class="botao-carregar">
+          Atualizar
+        </button>
+
+      </div>
 
       <table id="tabela-contatos">
+
         <thead>
+
           <tr>
             <th>Foto</th>
             <th>Nome</th>
@@ -64,8 +101,11 @@
             <th>Cidade</th>
             <th>Ações</th>
           </tr>
+
         </thead>
+
         <tbody id="corpo-tabela"></tbody>
+
       </table>
 
       <p id="mensagem-lista"></p>
@@ -81,4 +121,5 @@
   <script type="module" src="app.js"></script>
 
 </body>
+
 </html>
