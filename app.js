@@ -8,13 +8,23 @@ const email = document.getElementById("campo-email")
 const foto = document.getElementById("campo-foto")
 const endereco = document.getElementById("campo-endereco")
 const cidade = document.getElementById("campo-cidade")
-
 const corpoTabela = document.getElementById("corpo-tabela")
 const mensagemLista = document.getElementById("mensagem-lista")
-
 const botaoSalvar = document.getElementById("botao-salvar")
 const botaoCancelar = document.getElementById("botao-cancelar")
 const botaoAtualizar = document.getElementById("botao-atualizar")
+const previewImagem = document.getElementById("preview-imagem")
+
+function mostrarPreview({ target }) {
+
+  const arquivo = target.files[0]
+
+  if (arquivo) {
+    previewImagem.src = URL.createObjectURL(arquivo)
+  }
+}
+
+foto.addEventListener("change", mostrarPreview)
 
 async function carregarContatos() {
 

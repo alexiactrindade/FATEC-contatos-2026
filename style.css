@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 body{
   min-height: 100vh;
   display: flex;
@@ -16,9 +15,8 @@ body{
   font-weight: 300;
 }
 
-
-h1,
-h2{
+/* TIPOGRAFIA */
+h1, h2{
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
 }
@@ -26,7 +24,6 @@ h2{
 h1{
   font-size: 2.4rem;
   letter-spacing: 0.3em;
-  font-style: normal;
 }
 
 h2{
@@ -34,6 +31,7 @@ h2{
   font-style: italic;
 }
 
+/* HEADER */
 header{
   padding: 2rem 3rem;
   background: #0a0a0a;
@@ -42,7 +40,6 @@ header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
@@ -58,7 +55,7 @@ header p{
   color: #f5f4f0;
 }
 
-
+/* MAIN */
 main{
   width: 100%;
   display: flex;
@@ -66,11 +63,13 @@ main{
   flex: 1;
 }
 
+/* FORMULÁRIO */
 #painel-formulario{
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 3rem;
+
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -102,22 +101,23 @@ main{
   border-bottom: 1px solid #b0aca4;
   background: transparent;
   outline: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: inherit;
   font-size: 13px;
-  font-weight: 300;
 }
 
 #painel-formulario input:focus{
   border-bottom-color: #0a0a0a;
 }
 
+/* BOTÕES */
 .botao-salvar,
 .botao-cancelar{
   width: 100%;
   padding: 0.9rem;
   border: 1px solid #0a0a0a;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+
+  font-family: inherit;
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -145,6 +145,7 @@ main{
   color: #0a0a0a;
 }
 
+/* FEEDBACK */
 #mensagem-feedback{
   min-height: 1.4em;
   margin-top: 0.5rem;
@@ -154,7 +155,7 @@ main{
   color: #c9a84c;
 }
 
-
+/* LISTA */
 #painel-lista{
   width: 100%;
   padding: 2.5rem 3rem;
@@ -164,6 +165,7 @@ main{
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
   padding-bottom: 1.5rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid #0a0a0a;
@@ -174,7 +176,7 @@ main{
   border: 1px solid #0a0a0a;
   background: transparent;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+
   font-size: 9px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -185,24 +187,25 @@ main{
   color: #f5f4f0;
 }
 
+/* TABELA */
 table{
   width: 100%;
   border-collapse: collapse;
 }
 
 th{
-  padding: 0.7rem 0.8rem 0.7rem 0;
+  padding: 0.7rem 0.8rem;
   border-bottom: 1px solid #0a0a0a;
+
   text-align: left;
   font-size: 9px;
-  font-weight: 400;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #5a5650;
 }
 
 td{
-  padding: 1rem 0.8rem 1rem 0;
+  padding: 1rem 0.8rem;
   border-bottom: 1px solid #e8e6e0;
   vertical-align: middle;
 }
@@ -212,43 +215,22 @@ td img{
   height: 110px;
   object-fit: cover;
   object-position: top;
+
   display: block;
   background: #e8e6e0;
+
   filter: grayscale(100%);
 }
 
-
-#mensagem-lista{
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 11px;
-  font-style: italic;
-  color: #5a5650;
-}
-
-
-footer{
-  padding: 1rem 3rem;
-  border-top: 1px solid #e8e6e0;
-  background-color: #0a0a0a;;
-}
-
-footer p{
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #b0aca4;
-}
-
+/* AÇÕES */
 .editar,
 .excluir{
   padding: 0.4rem 0.8rem;
   border: 1px solid #0a0a0a;
   background: transparent;
+
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
   font-size: 8px;
-  font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -263,37 +245,71 @@ footer p{
   color: #f5f4f0;
 }
 
+/* UPLOAD */
 .upload-container{
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.8rem;
+
+  margin-top: 1.5rem;
 }
 
 .texto-upload{
   font-size: 9px;
-  font-weight: bold;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #5a5650;
+  opacity: 0.7;
 }
 
+.upload-container:hover .texto-upload{
+  opacity: 1;
+}
 
+/* FOTO 4:4 GRANDE */
 .botao-upload{
+  width: 240px;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #0a0a0a;
+  background: #f5f4f0;
+
   cursor: pointer;
-  border: none;
-  background: transparent;
+  transition: all 0.3s ease;
 }
 
 .botao-upload:hover{
-  opacity: 0.5;
+  background: #0a0a0a;
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0,0,0,0.35);
+}
+
+.botao-upload:hover img{
+  filter: invert(1);
 }
 
 #preview-imagem{
-  width: 20px;
-  height: 20px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
+  object-position: top;
+}
+
+/* FOOTER */
+footer{
+  padding: 1rem 3rem;
+  border-top: 1px solid #e8e6e0;
+  background: #0a0a0a;
+}
+
+footer p{
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b0aca4;
 }
