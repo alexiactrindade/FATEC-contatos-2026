@@ -40,13 +40,6 @@
 
       <input type="email" id="campo-email">
 
-      <label for="campo-foto">  Foto para avaliação </label>
-                   
-
-<input type="file" id="campo-foto" accept="image/*">
-
-<img id="preview-imagem" src="" alt="Preview da imagem">
-
       <label for="campo-endereco"> Endereço </label>
 
       <input type="text" id="campo-endereco">
@@ -55,6 +48,23 @@
 
       <input type="text" id="campo-cidade">
 
+<div class="upload-container">
+
+  <span class="texto-upload">Deixe sua foto para nossa avaliação:</span>
+
+  <input type="file" id="campo-foto" accept="image/*" hidden>
+
+  <label for="campo-foto" class="botao-upload">
+
+    <img 
+      id="preview-imagem"
+      src="./img/upload.svg"
+      alt="Upload de imagem"
+    >
+
+  </label>
+
+</div>
         <button type="button" id="botao-salvar" class="botao-salvar"> Salvar </button>
 
       <button type="button" id="botao-cancelar" class="botao-cancelar"> Cancelar </button>

@@ -230,6 +230,7 @@ td img{
 footer{
   padding: 1rem 3rem;
   border-top: 1px solid #e8e6e0;
+  background-color: #0a0a0a;;
 }
 
 footer p{
@@ -260,4 +261,39 @@ footer p{
 .excluir:hover{
   background: #0a0a0a;
   color: #f5f4f0;
+}
+
+.upload-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.texto-upload{
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #5a5650;
+}
+
+
+.botao-upload{
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.botao-upload:hover{
+  opacity: 0.5;
+}
+
+#preview-imagem{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
