@@ -1,3 +1,4 @@
+import { uploadParaCloudinary } from "./cloudinary.js"
 import {
   getContatoss, criarContato, atualizarContato, deletarContato} from "./contatos.js"
 
@@ -14,15 +15,6 @@ const botaoSalvar = document.getElementById("botao-salvar")
 const botaoCancelar = document.getElementById("botao-cancelar")
 const botaoAtualizar = document.getElementById("botao-atualizar")
 const previewImagem = document.getElementById("preview-imagem")
-
-function mostrarPreview({ target }) {
-
-  const arquivo = target.files[0]
-
-  if (arquivo) {
-    previewImagem.src = URL.createObjectURL(arquivo)
-  }
-}
 
 foto.addEventListener("change", mostrarPreview)
 
@@ -157,3 +149,4 @@ botaoCancelar.addEventListener("click", () => {
 botaoAtualizar.addEventListener("click", carregarContatos)
 
 carregarContatos() 
+
