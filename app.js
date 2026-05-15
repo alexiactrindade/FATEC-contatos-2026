@@ -1,6 +1,11 @@
-import { uploadParaCloudinary } from "./cloudinary.js"
+import { uploadImagem } from "./preview.js"
+
 import {
-  getContatoss, criarContato, atualizarContato, deletarContato} from "./contatos.js"
+  getContatoss,
+  criarContato,
+  atualizarContato,
+  deletarContato
+} from "./contatos.js"
 
 const id = document.getElementById("campo-id")
 const nome = document.getElementById("campo-nome")
@@ -9,14 +14,15 @@ const email = document.getElementById("campo-email")
 const foto = document.getElementById("campo-foto")
 const endereco = document.getElementById("campo-endereco")
 const cidade = document.getElementById("campo-cidade")
+
 const corpoTabela = document.getElementById("corpo-tabela")
 const mensagemLista = document.getElementById("mensagem-lista")
+
 const botaoSalvar = document.getElementById("botao-salvar")
 const botaoCancelar = document.getElementById("botao-cancelar")
 const botaoAtualizar = document.getElementById("botao-atualizar")
-const previewImagem = document.getElementById("preview-imagem")
 
-foto.addEventListener("change", mostrarPreview)
+const previewImagem = document.getElementById("preview-imagem")
 
 async function carregarContatos() {
 
@@ -31,6 +37,7 @@ async function carregarContatos() {
     const linha = document.createElement("tr")
 
     const colunaFoto = document.createElement("td")
+
     const imagem = document.createElement("img")
 
     imagem.src = contato.foto
@@ -56,6 +63,7 @@ async function carregarContatos() {
     const colunaAcoes = document.createElement("td")
 
     const botaoEditar = document.createElement("button")
+
     botaoEditar.textContent = "Editar"
     botaoEditar.classList.add("editar")
 
@@ -64,17 +72,13 @@ async function carregarContatos() {
     })
 
     const botaoExcluir = document.createElement("button")
+
     botaoExcluir.textContent = "Excluir"
     botaoExcluir.classList.add("excluir")
 
     botaoExcluir.addEventListener("click", async () => {
-
-      const confirmar = confirm("Deseja excluir este contato?")
-
-      if (confirmar) {
-        await deletarContato(contato.id)
-        carregarContatos()
-      }
+      await deletarContato(contato.id)
+      carregarContatos()
     })
 
     colunaAcoes.appendChild(botaoEditar)
@@ -100,27 +104,26 @@ function preencherFormulario(contato) {
   nome.value = contato.nome
   celular.value = contato.celular
   email.value = contato.email
-  foto.value = contato.foto
   endereco.value = contato.endereco
   cidade.value = contato.cidade
+
+  previewImagem.src = contato.foto
 }
 
 async function salvarContato() {
+
+  const fotoUrl = await uploadImagem()
 
   const contato = {
     nome: nome.value,
     celular: celular.value,
     email: email.value,
-    foto: foto.value,
+    foto: fotoUrl,
     endereco: endereco.value,
     cidade: cidade.value
   }
 
-  if (id.value) {
-    await atualizarContato(id.value, contato)
-  } else {
-    await criarContato(contato)
-  }
+  await criarContato(contato)
 
   id.value = ""
   nome.value = ""
@@ -129,6 +132,8 @@ async function salvarContato() {
   foto.value = ""
   endereco.value = ""
   cidade.value = ""
+
+  previewImagem.src = "./img/upload.svg"
 
   carregarContatos()
 }
@@ -144,9 +149,11 @@ botaoCancelar.addEventListener("click", () => {
   foto.value = ""
   endereco.value = ""
   cidade.value = ""
+
+  previewImagem.src = "./img/upload.svg"
 })
 
 botaoAtualizar.addEventListener("click", carregarContatos)
 
-carregarContatos() 
+carregarContatos()
 

@@ -1,19 +1,24 @@
 'use strict'
-import { uploadParaCloudinary } from "./cloudinary"
 
-function uploadImagem() { 
-    const input = document.getElementById('preview-input')
-    const linkPublico = uploadParaCloudinary(input.files[0])
+import { uploadParaCloudinary } from "./cloudinary.js"
+
+const inputFoto = document.getElementById('campo-foto')
+const previewImagem = document.getElementById('preview-imagem')
+
+let linkImagem = ''
+
+async function uploadImagem() {
+
+  linkImagem = await uploadParaCloudinary(inputFoto.files[0])
+
+  return linkImagem
 }
-function preview ({target}) { 
-  document.getElementById('preview-image')
-    .src = URL.createObjectURL(target.files[0]) 
-  
+
+function mostrarPreview({ target }) {
+
+  previewImagem.src = URL.createObjectURL(target.files[0])
 }
 
-document.getElementById('preview-input')
-        .addEventListener('change', preview)
+inputFoto.addEventListener('change', mostrarPreview)
 
-document.getElementById('salvar')
-
-document.getElementById('salvar').addEventListener('click', upload)
+export { uploadImagem, linkImagem }
