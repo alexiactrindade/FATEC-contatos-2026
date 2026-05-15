@@ -289,7 +289,7 @@ td img{
   box-shadow: 0 0 30px rgba(0,0,0,0.35);
 }
 
-.botao-upload:hover img{
+.botao-upload:hover img[src*="upload.svg"]{
   filter: invert(1);
 }
 
