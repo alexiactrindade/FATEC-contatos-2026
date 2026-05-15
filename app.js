@@ -1,3 +1,4 @@
+'use strict'
 import { uploadImagem } from "./preview.js"
 
 import {
@@ -112,7 +113,11 @@ function preencherFormulario(contato) {
 
 async function salvarContato() {
 
-  const fotoUrl = await uploadImagem()
+  let fotoUrl = previewImagem.src
+
+  if (foto.files.length > 0) {
+    fotoUrl = await uploadImagem()
+  }
 
   const contato = {
     nome: nome.value,
@@ -123,7 +128,16 @@ async function salvarContato() {
     cidade: cidade.value
   }
 
-  await criarContato(contato)
+  if (id.value) {
+
+    contato.id = id.value
+
+    await atualizarContato(contato)
+
+  } else {
+
+    await criarContato(contato)
+  }
 
   id.value = ""
   nome.value = ""
@@ -132,7 +146,6 @@ async function salvarContato() {
   foto.value = ""
   endereco.value = ""
   cidade.value = ""
-
   previewImagem.src = "./img/upload.svg"
 
   carregarContatos()
@@ -153,7 +166,7 @@ botaoCancelar.addEventListener("click", () => {
   previewImagem.src = "./img/upload.svg"
 })
 
-botaoAtualizar.addEventListener("click", carregarContatos)
+botaoAtualizar.addEventListener("click", carregarContatos) 
 
 carregarContatos()
 

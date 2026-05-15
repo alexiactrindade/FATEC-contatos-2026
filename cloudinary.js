@@ -1,3 +1,4 @@
+'use strict'
 const CLOUD_NAME = 'daxpl0xw3'
 const PRESET_NAME = 'fotos_contato'
 
