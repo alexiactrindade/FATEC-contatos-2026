@@ -25,6 +25,18 @@ const botaoAtualizar = document.getElementById("botao-atualizar")
 
 const previewImagem = document.getElementById("preview-imagem")
 
+const botaoLogin = document.getElementById("botao-login")
+const formulario = document.querySelector("main")
+
+formulario.style.display = "none"
+
+function fazerLogin() {
+
+  formulario.style.display = "flex"
+}
+
+botaoLogin.addEventListener("click", fazerLogin)
+
 async function carregarContatos() {
 
   mensagemLista.textContent = "Carregando contatos..."
@@ -169,4 +181,6 @@ botaoCancelar.addEventListener("click", () => {
 botaoAtualizar.addEventListener("click", carregarContatos) 
 
 carregarContatos()
+
+
 
